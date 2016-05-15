@@ -1,7 +1,8 @@
 # -*- Dockerfile -*-
 
-FROM debian:jessie
-MAINTAINER Respoke <info@respoke.io> 
+#FROM debian:jessie
+FROM armv7/armhf-ubuntu
+MAINTAINER what <13841495@qq.com> 
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -21,7 +22,7 @@ RUN apt-get update -qq && \
 
 COPY config_site.h /tmp/
 
-ENV PJSIP_VERSION=2.4.5
+ENV PJSIP_VERSION=2.5
 RUN mkdir /usr/src/pjsip && \
     cd /usr/src/pjsip && \
     curl -vsL http://www.pjsip.org/release/${PJSIP_VERSION}/pjproject-${PJSIP_VERSION}.tar.bz2 | \
